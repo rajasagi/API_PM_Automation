@@ -1,0 +1,466 @@
+{
+	"info": {
+		"_postman_id": "a247950a-ffa3-487c-90d1-113213ad9137",
+		"name": "Reqres_AutomationTesting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reqres_ListUsers_Page1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a445b62a-dff6-4ae2-ab77-f0d8b18d2137",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Domain}}/api/users?page=1",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_ListUsers_Page2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f2afc869-7009-43c9-9c3a-538678fd692b",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Domain}}/api/{{ListUsers_Path}}=2",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"{{ListUsers_Path}}=2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_SingleUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d7682b9-0329-4ed3-9ded-fee13ce72f0b",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Domain}}/api/{{SingleUser_Path}}",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"{{SingleUser_Path}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_SingleUser_NotFound",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d0366fa0-0879-4ad1-9bed-0288a258cc0b",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 404\",function(){",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Domain}}/api/unknown/23",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"unknown",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_List_Resource",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d525c3dd-5cf6-4326-836a-05ea885e4090",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "reqres.in/api/unknown",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"unknown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_Single_Resource",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c453deae-fed5-4cd2-8cff-b3d23217fe30",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Domain}}/api/{{SingleReq_Path}}",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"{{SingleReq_Path}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_Single_Resource_NotFound",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7ddc88a-62d5-45ee-a172-24fe39d1826b",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 404\",function(){",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "reqres.in/api/unknown/23",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"unknown",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_Create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c93b0740-f90c-4605-a65e-91fb45e8f3f3",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"morpheus\",\n\"job:\"Leader\"\n}"
+				},
+				"url": {
+					"raw": "{{Domain}}/api/users",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8b8fe033-c89f-4ce2-9a31-a9049d440505",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"morpheus\",\n\"job:\"Manager\"\n}"
+				},
+				"url": {
+					"raw": "{{Domain}}/api/users/2",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_Register_Successful",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f991c33-3f24-46f6-90e9-ac813c9e9e2d",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"eve.holt@reqres.in\",\n\"job:\"pistol\"\n}"
+				},
+				"url": {
+					"raw": "{{Domain}}/api/{{Register_Path}}",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"{{Register_Path}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reqres_Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec5118c2-d140-41cd-887a-47bd564f6261",
+						"exec": [
+							"var data=JSON.parse(responseBody);",
+							"pm.environment.set(\"pageno\",data.page);",
+							"pm.test(\"Status code is 200\",function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time should be under 2 seconds\",function()",
+							"{",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"eve.holt@reqres.in\",\n\"job:\"cityslicka\"\n}"
+				},
+				"url": {
+					"raw": "{{Domain}}/api/{{Login_Path}}",
+					"host": [
+						"{{Domain}}"
+					],
+					"path": [
+						"api",
+						"{{Login_Path}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
